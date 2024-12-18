@@ -1,13 +1,14 @@
 {
   "project_info": {
-    "project_number": "7146297729",
-    "project_id": "popo-608a5",
-    "storage_bucket": "popo-608a5.firebasestorage.app"
+    "project_number": "1096366056142",
+    "firebase_url": "https://manajemen-stok-barang-fb617-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "manajemen-stok-barang-fb617",
+    "storage_bucket": "manajemen-stok-barang-fb617.firebasestorage.app"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:7146297729:android:fc617e4c8859c50e1a7080",
+        "mobilesdk_app_id": "1:1096366056142:android:a18eb665af668df460269f",
         "android_client_info": {
           "package_name": "com.example.manajemenstokbarang"
         }
@@ -15,26 +16,7 @@
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyBzmO9G3TApgOpiSNH8LqXIlUk-7ntlXCM"
-        }
-      ],
-      "services": {
-        "appinvite_service": {
-          "other_platform_oauth_client": []
-        }
-      }
-    },
-    {
-      "client_info": {
-        "mobilesdk_app_id": "1:7146297729:android:6e4c9ff39deb04ab1a7080",
-        "android_client_info": {
-          "package_name": "com.example.popo"
-        }
-      },
-      "oauth_client": [],
-      "api_key": [
-        {
-          "current_key": "AIzaSyBzmO9G3TApgOpiSNH8LqXIlUk-7ntlXCM"
+          "current_key": "AIzaSyAc2J61rnMCyJcXfg2KcDDHh26lUpvq-sI"
         }
       ],
       "services": {
