@@ -1,0 +1,47 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.manajemenstokbarang">
+
+    <application
+        android:allowBackup="true"
+        android:label="@string/app_name"
+        android:icon="@mipmap/ic_launcher"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.ManajemenStokBarang">
+
+        <!-- LoginActivity sebagai entry point -->
+        <activity
+            android:name=".LoginActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!-- DashboardActivity -->
+        <activity
+            android:name=".DashboardActivity"
+            android:exported="true" />
+
+        <!-- Aktivitas lainnya -->
+        <activity
+            android:name=".HomeActivity"
+            android:exported="false" />
+        <activity
+            android:name=".BarangMasuk"
+            android:exported="false" />
+        <activity
+            android:name=".BarangKeluar"
+            android:exported="false" />
+        <activity
+            android:name=".StokBarangActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ReportsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".SettingsActivity"
+            android:exported="false" />
+    </application>
+</manifest>

@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "7146297729",
+    "project_id": "popo-608a5",
+    "storage_bucket": "popo-608a5.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:7146297729:android:fc617e4c8859c50e1a7080",
+        "android_client_info": {
+          "package_name": "com.example.manajemenstokbarang"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBzmO9G3TApgOpiSNH8LqXIlUk-7ntlXCM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:7146297729:android:6e4c9ff39deb04ab1a7080",
+        "android_client_info": {
+          "package_name": "com.example.popo"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBzmO9G3TApgOpiSNH8LqXIlUk-7ntlXCM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
