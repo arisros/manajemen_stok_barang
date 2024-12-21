@@ -25,7 +25,8 @@ public class DashboardActivity extends AppCompatActivity {
     private ImageView btnHome;
     private ImageView btnInventory;
     private ImageView btnOrders;
-    private ImageView btnLogout; // Tombol logout
+    private ImageView btnLogout;
+    private ImageView btn_stokbarang;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,13 +37,14 @@ public class DashboardActivity extends AppCompatActivity {
         btnHome = findViewById(R.id.btn_home);
         btnInventory = findViewById(R.id.btn_inventory);
         btnOrders = findViewById(R.id.btn_orders);
-        btnLogout = findViewById(R.id.btn_settings); // Tombol logout
+        btn_stokbarang = findViewById(R.id.btn_stokbarang);
+        btnLogout = findViewById(R.id.btn_settings);
 
         // Aksi Tombol Home
         btnHome.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(DashboardActivity.this, HomeActivity.class);
+                Intent intent = new Intent(DashboardActivity.this, DashboardActivity.class);
                 startActivity(intent);
                 finish();
             }
@@ -53,6 +55,15 @@ public class DashboardActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(DashboardActivity.this, BarangMasuk.class);
+                startActivity(intent);
+                finish();
+            }
+        });
+        // Aksi Tombol Melihat Stok Barang
+        btn_stokbarang.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(DashboardActivity.this, StokBarangActivity.class);
                 startActivity(intent);
                 finish();
             }
@@ -86,8 +97,13 @@ public class DashboardActivity extends AppCompatActivity {
 
         // Membuat data dummy
         productList = new ArrayList<>();
-        productList.add(new Product("Lampu PJU 1", 15, R.drawable.ic_lampu_pju));
-        productList.add(new Product("Lampu PJU 2", 10, R.drawable.ic_lampu_pju2));
+        productList.add(new Product("Lampu PJU", 15, R.drawable.ic_lampu_pju2));
+        productList.add(new Product("Tiang PJU", 10, R.drawable.ic_logo_tiangpju));
+        productList.add(new Product("Angkur", 15, R.drawable.ic_logo_angkur));
+        productList.add(new Product("Lampu", 10, R.drawable.ic_logo_lampu));
+        productList.add(new Product("MCB", 15, R.drawable.ic_logo_mcb));
+        productList.add(new Product("Panel", 10, R.drawable.ic_logo_panel));
+
 
         // Inisialisasi Adapter
         productAdapter = new ProductAdapter(productList, this);

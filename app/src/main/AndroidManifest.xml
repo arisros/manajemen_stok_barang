@@ -26,9 +26,6 @@
 
         <!-- Aktivitas lainnya -->
         <activity
-            android:name=".HomeActivity"
-            android:exported="false" />
-        <activity
             android:name=".BarangMasuk"
             android:exported="false" />
         <activity

@@ -35,17 +35,19 @@
         android:layout_marginBottom="8dp" />
 
     <!-- Spinner for Product Name -->
+
+    <!-- EditText for Qty -->
     <Spinner
         android:id="@+id/spinner_product_name"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
         android:background="@android:drawable/btn_dropdown"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toStartOf="@id/input_qty"
-        app:layout_constraintTop_toBottomOf="@id/label_product_name"
-        android:layout_marginEnd="8dp" />
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/label_product_name" />
 
-    <!-- EditText for Qty -->
     <EditText
         android:id="@+id/input_qty"
         android:layout_width="60dp"

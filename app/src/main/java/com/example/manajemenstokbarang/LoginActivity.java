@@ -63,8 +63,10 @@ public class LoginActivity extends AppCompatActivity {
 
     private void validateUser(String id, String username, String password, String position) {
         db.collection("Login") // Replace "users" with your Firestore collection nam
+                .whereEqualTo("ID", id)
                 .whereEqualTo("Username", username)
                 .whereEqualTo("Password", password)
+                .whereEqualTo("Posisi", position)
                 .get()
                 .addOnSuccessListener(queryDocumentSnapshots -> {
                     if (!queryDocumentSnapshots.isEmpty()) {

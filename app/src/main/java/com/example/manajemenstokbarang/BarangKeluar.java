@@ -40,7 +40,7 @@ public class BarangKeluar extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Pindah ke DashboardActivity
-                Intent intent = new Intent(BarangKeluar.this, HomeActivity.class);
+                Intent intent = new Intent(BarangKeluar.this, DashboardActivity.class);
                 startActivity(intent);
                 finish();
             }
