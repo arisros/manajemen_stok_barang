@@ -47,34 +47,37 @@
             app:layout_constraintTop_toBottomOf="@id/label_product_name" />
 
         <EditText
-            android:id="@+id/et_jumlah_barang"
+            android:id="@+id/et_nama_barang"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="8dp"
             android:background="@drawable/rounded_edittext"
             android:hint="Nama Barang"
+            android:enabled="false"
             android:inputType="number"
             android:padding="8dp"
             android:textColor="#000000"
             android:textColorHint="#757575" />
 
         <EditText
-            android:id="@+id/et_jumlah_barang2"
+            android:id="@+id/et_lokasi"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="8dp"
             android:background="@drawable/rounded_edittext"
             android:hint="Lokasi"
+            android:enabled="false"
             android:inputType="number"
             android:padding="8dp"
             android:textColor="#000000"
             android:textColorHint="#757575" />
 
         <EditText
-            android:id="@+id/et_keterangan_barang"
+            android:id="@+id/et_jumlah_barang"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="8dp"
+            android:enabled="false"
             android:background="@drawable/rounded_edittext"
             android:hint="Jumlah Barang Yang Ada"
             android:padding="8dp"
@@ -82,7 +85,7 @@
             android:textColorHint="#757575" />
 
         <EditText
-            android:id="@+id/et_jumlah_barang3"
+            android:id="@+id/et_add_qty"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/rounded_edittext"
