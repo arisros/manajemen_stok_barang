@@ -1,0 +1,8 @@
+<!-- res/drawable/ic_error.xml -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <solid android:color="#FF0000"/> <!-- Red background -->
+    <size android:width="60dp" android:height="60dp"/>
+<!--    <android:drawableLeft>-->
+<!--        <bitmap android:src="@drawable/ic_error_icon" android:gravity="center"/>-->
+<!--    </android:drawableLeft>-->
+</shape>

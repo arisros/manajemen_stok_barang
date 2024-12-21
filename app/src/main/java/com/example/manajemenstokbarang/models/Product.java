@@ -1,25 +1,26 @@
 package com.example.manajemenstokbarang.models;
 
-public class Product {
-    private String name;
-    private int stock;
-    private int imageResource;
 
-    public Product(String name, int stock, int imageResource) {
+public class Product {
+    private final String name;
+    private final int quantity;
+    private final String imageUrl;
+
+    public Product(String name, int quantity, String imageUrl) {
         this.name = name;
-        this.stock = stock;
-        this.imageResource = imageResource;
+        this.quantity = quantity;
+        this.imageUrl = imageUrl;
     }
 
     public String getName() {
         return name;
     }
 
-    public int getStock() {
-        return stock;
+    public int getQuantity() {
+        return quantity;
     }
 
-    public int getImageResource() {
-        return imageResource;
+    public String getImageUrl() {
+        return imageUrl;
     }
 }

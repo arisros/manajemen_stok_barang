@@ -1,7 +1,9 @@
 package com.example.manajemenstokbarang;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 
@@ -11,6 +13,9 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.manajemenstokbarang.adapters.ProductAdapter;
 import com.example.manajemenstokbarang.models.Product;
+import com.example.manajemenstokbarang.utils.NavigationHelper;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,92 +26,73 @@ public class DashboardActivity extends AppCompatActivity {
     private ProductAdapter productAdapter;
     private List<Product> productList;
 
-    // Tombol navigasi
+    // Navigation buttons
     private ImageView btnHome;
     private ImageView btnInventory;
     private ImageView btnOrders;
     private ImageView btnLogout;
-    private ImageView btn_stokbarang;
+    private ImageView btnStokBarang;
+
+    private FirebaseFirestore firestore;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dashboard);
 
-        // Inisialisasi tombol navigasi
+        // Initialize Firebase Firestore
+        firestore = FirebaseFirestore.getInstance();
+
+        // Initialize navigation buttons
         btnHome = findViewById(R.id.btn_home);
         btnInventory = findViewById(R.id.btn_inventory);
         btnOrders = findViewById(R.id.btn_orders);
-        btn_stokbarang = findViewById(R.id.btn_stokbarang);
+        btnStokBarang = findViewById(R.id.btn_stokbarang);
         btnLogout = findViewById(R.id.btn_settings);
 
-        // Aksi Tombol Home
-        btnHome.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(DashboardActivity.this, DashboardActivity.class);
-                startActivity(intent);
-                finish();
-            }
-        });
 
-        // Aksi Tombol Barang Masuk
-        btnInventory.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(DashboardActivity.this, BarangMasuk.class);
-                startActivity(intent);
-                finish();
-            }
-        });
-        // Aksi Tombol Melihat Stok Barang
-        btn_stokbarang.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(DashboardActivity.this, StokBarangActivity.class);
-                startActivity(intent);
-                finish();
-            }
-        });
+        // Set navigation actions
+        NavigationHelper.setNavigationActions(this, btnHome, btnInventory, btnOrders, btnStokBarang, btnLogout);
 
-        // Aksi Tombol Barang Keluar
-        btnOrders.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(DashboardActivity.this, BarangKeluar.class);
-                startActivity(intent);
-                finish();
-            }
-        });
-
-        // Aksi Tombol Logout
-        btnLogout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Kembali ke LoginActivity
-                Intent intent = new Intent(DashboardActivity.this, LoginActivity.class);
-                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
-                startActivity(intent);
-                finish();
-            }
-        });
-
-        // Inisialisasi RecyclerView
+        // Initialize RecyclerView
         recyclerView = findViewById(R.id.recyclerView_products);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-        // Membuat data dummy
+        // Load data from Firestore
+        fetchProductsFromFirestore();
+    }
+
+
+    private void fetchProductsFromFirestore() {
         productList = new ArrayList<>();
-        productList.add(new Product("Lampu PJU", 15, R.drawable.ic_lampu_pju2));
-        productList.add(new Product("Tiang PJU", 10, R.drawable.ic_logo_tiangpju));
-        productList.add(new Product("Angkur", 15, R.drawable.ic_logo_angkur));
-        productList.add(new Product("Lampu", 10, R.drawable.ic_logo_lampu));
-        productList.add(new Product("MCB", 15, R.drawable.ic_logo_mcb));
-        productList.add(new Product("Panel", 10, R.drawable.ic_logo_panel));
+        firestore.collection("Manajemen Stok Gudang") // Firestore collection name
+                .get()
+                .addOnCompleteListener(task -> {
+                    if (task.isSuccessful() && task.getResult() != null) {
+                        QuerySnapshot querySnapshot = task.getResult();
+                        for (var document : querySnapshot.getDocuments()) {
+                            String name = document.getString("Nama Barang");
+                            long quantity = Integer.parseInt(String.valueOf(document.get("Jumlah")));
+                            String imageUrl = document.getString("Image");
+
+                            // Create a Product object
+                            Product product = new Product(name, (int) quantity, imageUrl);
 
 
-        // Inisialisasi Adapter
-        productAdapter = new ProductAdapter(productList, this);
-        recyclerView.setAdapter(productAdapter);
+                            productList.add(product);
+                        }
+
+                        for (Product product : productList) {
+                            Log.d("Firestores", "Product: " + product.getName() + " - " + product.getQuantity());
+                        }
+
+                        // Set up the adapter
+                        productAdapter = new ProductAdapter(productList, this);
+                        recyclerView.setAdapter(productAdapter);
+                    } else {
+                        Log.e("Firestore", "Error fetching products: ", task.getException());
+                    }
+                });
     }
 }

@@ -1,0 +1,4 @@
+<!-- A simple solid color placeholder in res/drawable/ic_placeholder.xml -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <solid android:color="#D3D3D3" /> <!-- Light gray color -->
+</shape>

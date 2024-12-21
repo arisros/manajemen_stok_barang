@@ -7,6 +7,7 @@
         android:icon="@mipmap/ic_launcher"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
+        android:name=".UserRoles"
         android:theme="@style/Theme.ManajemenStokBarang">
 
         <!-- LoginActivity sebagai entry point -->
@@ -40,5 +41,7 @@
         <activity
             android:name=".SettingsActivity"
             android:exported="false" />
+
     </application>
+
 </manifest>

@@ -16,6 +16,7 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.manajemenstokbarang.utils.NavigationHelper;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -83,11 +84,7 @@ public class BarangMasuk extends AppCompatActivity {
         btn_stokbarang = findViewById(R.id.btn_stokbarang);
         btnLogout = findViewById(R.id.btn_settings);
 
-        btnhome.setOnClickListener(v -> navigateTo(DashboardActivity.class));
-        btn_inventory.setOnClickListener(v -> navigateTo(BarangMasuk.class));
-        btn_orders.setOnClickListener(v -> navigateTo(BarangKeluar.class));
-        btn_stokbarang.setOnClickListener(v -> navigateTo(StokBarangActivity.class));
-        btnLogout.setOnClickListener(v -> navigateTo(LoginActivity.class));
+        NavigationHelper.setNavigationActions(this, btnhome, btn_inventory, btn_orders, btn_stokbarang, btnLogout);
 
         btnConfirm.setOnClickListener(v -> {
             String productId = productIdMap.get(spinnerProductName.getSelectedItem().toString());
